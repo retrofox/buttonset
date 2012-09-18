@@ -12,11 +12,18 @@
       }
       a {
         text-decoration: none;
-        padding: 5px;
+        border: 1px solid gray;
+        padding: 5px 8px;
+        margin: 3px;
       }
 
       a:hover {
         text-decoration: underline;
+      }
+
+      a.setted {
+        background-color: gray;
+        color: white;
       }
 
     </style>
@@ -27,7 +34,10 @@
     <script src="../build/build.js"></script>
     <script>
       var Buttonset = require('buttonset');
-      var button = new Buttonset('.buttonset-placeholder', ['A', 'B', 'C', 'D']);
+      new Buttonset('.buttonset-placeholder', ['A', 'B', 'C', 'D']);
+      button.on('set', function(opt){
+        console.log('setted "%s"', opt.text());
+      });
     </script>
   </body>
 </html>

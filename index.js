@@ -37,6 +37,11 @@ function ButtonSet(el, opts) {
       this.add(this.options[i]);
     }
   }
+
+  // bind click event to options
+  this.el.on('click', 'a', this.onSet.bind(this));
+
+  return this;
 }
 
 /**
@@ -54,4 +59,11 @@ inherit(ButtonSet, Emitter);
 
 ButtonSet.prototype.add = function(el){
   this.el.append(o('<a href="#">' + el + '</a>'));
+};
+
+
+ButtonSet.prototype.onSet = function(e){
+  var prev = this.el.find('a.setted').removeClass('setted');
+  var setted = o(e.target).addClass('setted');
+  this.emit('set', setted);
 };
