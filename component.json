@@ -1,0 +1,15 @@
+{
+  "name": "buttonset",
+  "repo": "component/buttonset",
+  "description": "Buttonset component",
+  "version": "0.0.1",
+  "keywords": ["buttonset"],
+  "dependencies": {},
+  "development": {},
+  "scripts": [
+    "index.js"
+  ],
+  "styles": [
+    "buttonset.css"
+  ]
+}
