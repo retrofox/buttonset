@@ -1,3 +1,6 @@
 .buttonset {
   display: inline-block;
 }
+
+.buttonset a {
+}
