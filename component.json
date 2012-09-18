@@ -4,7 +4,11 @@
   "description": "Buttonset component",
   "version": "0.0.1",
   "keywords": ["buttonset"],
-  "dependencies": {},
+  "dependencies": {
+    "component/emitter": "*",
+    "component/jquery": "*",
+    "component/classes": "*"
+  },
   "development": {},
   "scripts": [
     "index.js"
