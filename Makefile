@@ -8,4 +8,9 @@ components:
 clean:
 	rm -fr build components template.js
 
+all:
+	clear
+	make clean
+	make build
+
 .PHONY: clean
