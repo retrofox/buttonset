@@ -4,7 +4,9 @@
  * Module dependencies.
  */
 
-var classes = require('classes')
+var Emitter = require('emitter')
+  , classes = require('classes')
+  , inherit = require('inherit')
   , o = require('jquery');
 
 /**
@@ -24,6 +26,7 @@ module.exports = ButtonSet;
 
 function ButtonSet(el, opts) {
   if (!(this instanceof ButtonSet)) return new ButtonSet(el, opts);
+  Emitter.call(this);
 
   this.el = o(el).addClass('buttonset');
   this.options = opts || [];
@@ -35,6 +38,12 @@ function ButtonSet(el, opts) {
     }
   }
 }
+
+/**
+ * Inherits from `Emitter.prototype`.
+ */
+
+inherit(ButtonSet, Emitter);
 
 /**
  * Add a new option
