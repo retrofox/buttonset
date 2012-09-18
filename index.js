@@ -62,8 +62,40 @@ ButtonSet.prototype.add = function(el){
 };
 
 
+/**
+ * onSet event
+ *
+ * @param {Object} e event object
+ * @api private
+ */
+
 ButtonSet.prototype.onSet = function(e){
-  var prev = this.el.find('a.setted').removeClass('setted');
-  var setted = o(e.target).addClass('setted');
-  this.emit('set', setted);
+  this.unset(this.el.find('a.setted'));
+  this.set(o(e.target));
+};
+
+/**
+ * Set an option
+ *
+ * @param {jQuery|Number} opt option to select
+ * @api public
+ */
+
+ButtonSet.prototype.set = function(opt){
+  opt = 'number' == typeof opts ? this.el.find('a').get(opt) : opt;
+  opt.addClass('setted');
+  this.emit('set', opt);
+};
+
+/**
+ * Unset an option
+ *
+ * @param {jQuery|Number} opt option to select
+ * @api public
+ */
+
+ButtonSet.prototype.unset = function(opt){
+  opt = 'number' == typeof opts ? this.el.find('a').get(opt) : opt;
+  opt.removeClass('setted');
+  this.emit('unset', opt);
 };
