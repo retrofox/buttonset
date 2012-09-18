@@ -1,0 +1,33 @@
+<!DOCTYPE 5>
+<html>
+  <head>
+    <title>Buttonset</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="../build/build.css" />
+    <style>
+      body {
+        padding: 60px;
+        font: 300 14px "Helvetica Neue", Helvetica, Arial;
+        min-height: 1000px;
+      }
+      a {
+        text-decoration: none;
+        padding: 5px;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+    </style>
+  </head>
+  <body>
+    <title>Buttonset</title>
+    <div class="buttonset-placeholder"></div>
+    <script src="../build/build.js"></script>
+    <script>
+      var Buttonset = require('buttonset');
+      var button = new Buttonset('.buttonset-placeholder', ['A', 'B', 'C', 'D']);
+    </script>
+  </body>
+</html>
