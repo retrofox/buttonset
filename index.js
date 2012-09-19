@@ -22,7 +22,7 @@ module.exports = ButtonSet;
  * @param {Object} opts options
  *
  *  - buttons {Array} initial buttons
- *  - unselectable {Boolean} allows unset the current setted option (default false)
+ *  - unselectable {Boolean} allows unset the current selected option (default false)
  *  - multiple {Boolean} allows multiple selections (default false)
  *
  * @api public
@@ -76,13 +76,13 @@ ButtonSet.prototype.add = function(){
  */
 
 ButtonSet.prototype.onSet = function(e){
-  if (classes(e.target).has('setted')) {
+  if (classes(e.target).has('selected')) {
     if (!this.options.unselectable) return;
-    return this.unset(this.el.find('a.setted'));
+    return this.unset(this.el.find('.selected'));
   }
 
-  if (!this.options.multiple && this.el.find('a.setted').length) {
-    this.unset(this.el.find('a.setted'));
+  if (!this.options.multiple && this.el.find('.selected').length) {
+    this.unset(this.el.find('.selected'));
   }
 
   this.set(o(e.target));
@@ -126,7 +126,7 @@ ButtonSet.prototype.change = function(button, set){
   button = 'number' == typeof button ? this.el.find('a').eq(button) : button;
   if (!button.length) return false;
 
-  classes(button.get(0))[set ? 'add' : 'remove']('setted');
+  classes(button.get(0))[set ? 'add' : 'remove']('selected');
   this.emit(set ? 'set' : 'unset', button, button.prevAll().length);
   return true;
 };
