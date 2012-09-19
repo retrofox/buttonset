@@ -89,7 +89,7 @@ ButtonSet.prototype.onSet = function(e){
 };
 
 /**
- * Set a button
+ * Set the given button
  *
  * Emits `set` (el, index) event
  *
@@ -102,7 +102,7 @@ ButtonSet.prototype.set = function(button){
 };
 
 /**
- * Unset a button
+ * Unset the given button
  *
  * Emits `unset` (el, index) event
  *
@@ -115,7 +115,7 @@ ButtonSet.prototype.unset = function(button){
 };
 
 /**
- * Set/Unset a button
+ * Set/Unset the given button
  *
  * @param {jQuery|Number} button option to select
  * @param {Boolean} set defines set or unset button
