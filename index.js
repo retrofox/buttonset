@@ -23,6 +23,7 @@ module.exports = ButtonSet;
  *
  *  - buttons {Array} buttonset buttons
  *  - unselectable {Boolean} allows unset the current setted option (default: true)
+ *  - multiple {Boolean} allows multiple selections (default false)
  *
  * @api public
  */
@@ -83,7 +84,7 @@ ButtonSet.prototype.onSet = function(e){
     return this.unset(this.el.find('a.setted'));
   }
 
-  if (this.el.find('a.setted').length) {
+  if (!this.options.multiple && this.el.find('a.setted').length) {
     this.unset(this.el.find('a.setted'));
   }
 

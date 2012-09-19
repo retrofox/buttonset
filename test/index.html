@@ -37,7 +37,7 @@
 
       new Buttonset('.buttonset-placeholder', {
         buttons: ['A', 'B', 'C', 'D'],
-        unselectable: true
+        unselectable: true,
       }).set(2)
         .on('set', function(button, index){
           console.log('setted "%s", index: %s', button.text(), index);
