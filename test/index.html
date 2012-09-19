@@ -33,18 +33,21 @@
     <div class="buttonset-placeholder"></div>
     <script src="../build/build.js"></script>
     <script>
-      var Buttonset = require('buttonset');
+      var ButtonSet = require('buttonset');
 
-      new Buttonset('.buttonset-placeholder', {
-        buttons: ['A', 'B', 'C', 'D'],
-        unselectable: true,
-      }).set(2)
-        .on('set', function(button, index){
-          console.log('setted "%s", index: %s', button.text(), index);
-        })
-        .on('unset', function(button, index){
-          console.log('unsetted "%s", index: %s', button.text(), index);
-        });
+      var bset = new ButtonSet('.buttonset-placeholder');
+      bset.add('A');
+      bset.add('B', 'C', 'D');
+
+      bset.set(1);
+
+      bset.on('set', function(button, index){
+        console.log('SET button "%s". index: %s', button.text(), index);
+      });
+
+      bset.on('unset', function(button, index){
+        console.log('UNSET button "%s". index: %s', button.text(), index);
+      });
 
     </script>
   </body>

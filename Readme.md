@@ -1,7 +1,7 @@
 
-# Buttonset
+# ButtonSet
 
-  Buttonset component
+  ButtonSet component
 
   ![js buttonset
   component](http://f.cl.ly/items/2a3a0j3H2p3v1Q0Q2w08/Screen%20Shot%202012-09-18%20at%208.52.24%20PM.png)
@@ -14,25 +14,47 @@ $ npm install buttonset-component
 
 ## Events
 
-  - `set` when an option (opt) is setted.
-  - `unset` when an option (opt) is unsetted.
+  - `set` (button, index) when an button is setted.
+  - `unset` (button, index) when an button is unsetted.
 
 ## Example
 
 ```js
-var Buttonset = require('buttonset');
+var ButtonSet = require('buttonset');
 
-new Buttonset('.buttonset-placeholder', {
-  options: ['A', 'B', 'C', 'D'],
-  unselectable: true
-}).set(2)
-  .on('set', function(opt){
-    console.log('setted "%s"', opt.text());
-  })
-  .on('unset', function(opt){
-    console.log('unsetted "%s"', opt.text());
-  });
+var bset = new ButtonSet('.buttonset-placeholder');
+bset.add('A');
+bset.add('B', 'C', 'D');
+
+bset.set(1);
+
+bset.on('set', function(button, index){
+  console.log('SET button "%s". index: %s', button.text(), index);
+});
+
+bset.on('unset', function(button, index){
+  console.log('UNSET button "%s". index: %s', button.text(), index);
+});
 ```
+
+## API
+
+### ButtonSet(el, options)
+
+  Creates a new `ButtonSet` append to the given el element with the follows (optional) options.
+
+  - buttons {Array} initial buttons
+  - unselectable {Boolean} allows unset the current setted option (default false)
+  - multiple {Boolean} allows multiple selections (default false)
+
+### ButtonSet#set(button)
+
+  Add `button` to the buttonset.
+
+### ButtonSet#unset(button)
+
+  Unset `button` from the buttonset, returning __true__ when present,
+  otherwise returning __false__.
 
 ## License
 

@@ -21,7 +21,7 @@ module.exports = ButtonSet;
  * @param {String|Object} el reference element
  * @param {Object} opts options
  *
- *  - buttons {Array} buttonset buttons
+ *  - buttons {Array} initial buttons
  *  - unselectable {Boolean} allows unset the current setted option (default false)
  *  - multiple {Boolean} allows multiple selections (default false)
  *
