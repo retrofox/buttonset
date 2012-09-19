@@ -34,6 +34,8 @@ new Buttonset('.buttonset-placeholder', {
   });
 ```
 
+## License
+
 (The MIT License)
 Copyright(c) 2012 Damian Suarez <rdsuarez@gmail.com>
 
