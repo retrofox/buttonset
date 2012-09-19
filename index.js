@@ -78,7 +78,7 @@ ButtonSet.prototype.add = function(){
 ButtonSet.prototype.onSet = function(e){
   if (classes(e.target).has('selected')) {
     if (!this.options.unselectable) return;
-    return this.unset(this.el.find('.selected'));
+    return this.unset(o(e.target));
   }
 
   if (!this.options.multiple && this.el.find('.selected').length) {
