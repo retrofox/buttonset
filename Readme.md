@@ -1,7 +1,36 @@
 
-# buttonset
+# Buttonset
 
   Buttonset component
+
+  ![js buttonset
+  component](http://f.cl.ly/items/2a3a0j3H2p3v1Q0Q2w08/Screen%20Shot%202012-09-18%20at%208.52.24%20PM.png)
+
+## Installation
+
+```
+$ npm install buttonset-component
+```
+
+## Events
+
+  - `set` when an option (opt) is setted.
+  - `unset` when an option (opt) is unsetted.
+
+## Example
+
+```js
+var Buttonset = require('buttonset');
+
+new Buttonset('.buttonset-placeholder', ['A', 'B', 'C', 'D'])
+.set(2)
+.on('set', function(opt){
+  console.log('setted "%s"', opt.text());
+})
+.on('unset', function(opt){
+  console.log('unsetted "%s"', opt.text());
+});
+```
 
 (The MIT License)
 Copyright(c) 2012 Damian Suarez <rdsuarez@gmail.com>
