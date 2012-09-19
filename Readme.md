@@ -14,8 +14,8 @@ $ npm install buttonset-component
 
 ## Events
 
-  - `set` (button, index) when an button is setted.
-  - `unset` (button, index) when an button is unsetted.
+  - `set` (button, index) when an button is selected.
+  - `unset` (button, index) when an button is unselected.
 
 ## Example
 
@@ -44,7 +44,7 @@ bset.on('unset', function(button, index){
   Creates a new `ButtonSet` append to the given el element with the follows (optional) options.
 
   - buttons {Array} initial buttons
-  - unselectable {Boolean} allows unset the current setted option (default false)
+  - unselectable {Boolean} allows unset the current selected option (default false)
   - multiple {Boolean} allows multiple selections (default false)
 
 ### ButtonSet#set(button)
