@@ -62,14 +62,15 @@ inherit(ButtonSet, Emitter);
 /**
  * Add a new option
  *
- * @param {String|jQuery} el option element
+ * @param {String|jQuery} button button/buttons to add
  * @api public
  */
 
-ButtonSet.prototype.add = function(el){
-  this.el.append(o('<a href="#">' + el + '</a>'));
+ButtonSet.prototype.add = function(){
+  for (var i = 0; i < arguments.length; i++) {
+    this.el.append(o('<a href="#">' +  arguments[i] + '</a>'));
+  }
 };
-
 
 /**
  * onSet event
