@@ -22,7 +22,7 @@ module.exports = ButtonSet;
  * @param {Object} opts options
  *
  *  - buttons {Array} buttonset buttons
- *  - unselectable {Boolean} allows unset the current setted option (default: true)
+ *  - unselectable {Boolean} allows unset the current setted option (default false)
  *  - multiple {Boolean} allows multiple selections (default false)
  *
  * @api public
@@ -43,9 +43,6 @@ function ButtonSet(el, opts) {
       this.add(this.options.buttons[i]);
     }
   }
-
-  // unseletable option is true by default
-  this.options.unselectable = false !== this.options.unselectable ;
 
   // bind click event to options
   this.el.on('click', 'a', this.onSet.bind(this));
