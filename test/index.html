@@ -36,14 +36,14 @@
       var Buttonset = require('buttonset');
 
       new Buttonset('.buttonset-placeholder', {
-        options: ['A', 'B', 'C', 'D'],
+        buttons: ['A', 'B', 'C', 'D'],
         unselectable: true
       }).set(2)
-        .on('set', function(opt){
-          console.log('setted "%s"', opt.text());
+        .on('set', function(button, index){
+          console.log('setted "%s", index: %s', button.text(), index);
         })
-        .on('unset', function(opt){
-          console.log('unsetted "%s"', opt.text());
+        .on('unset', function(button, index){
+          console.log('unsetted "%s", index: %s', button.text(), index);
         });
 
     </script>
