@@ -36,7 +36,8 @@
       var Buttonset = require('buttonset');
 
       new Buttonset('.buttonset-placeholder', {
-        options: ['A', 'B', 'C', 'D']
+        options: ['A', 'B', 'C', 'D'],
+        unselectable: true
       }).set(2)
         .on('set', function(opt){
           console.log('setted "%s"', opt.text());

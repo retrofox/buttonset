@@ -22,14 +22,16 @@ $ npm install buttonset-component
 ```js
 var Buttonset = require('buttonset');
 
-new Buttonset('.buttonset-placeholder', ['A', 'B', 'C', 'D'])
-.set(2)
-.on('set', function(opt){
-  console.log('setted "%s"', opt.text());
-})
-.on('unset', function(opt){
-  console.log('unsetted "%s"', opt.text());
-});
+new Buttonset('.buttonset-placeholder', {
+  options: ['A', 'B', 'C', 'D'],
+  unselectable: true
+}).set(2)
+  .on('set', function(opt){
+    console.log('setted "%s"', opt.text());
+  })
+  .on('unset', function(opt){
+    console.log('unsetted "%s"', opt.text());
+  });
 ```
 
 (The MIT License)
