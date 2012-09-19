@@ -1,0 +1,22 @@
+{
+  "name": "buttonset-component",
+  "description": "Buttonset component",
+  "version": "0.0.1",
+  "keywords": [
+    "buttonset",
+    "component"
+  ],
+  "dependencies": {
+  },
+  "component": {
+    "styles": [
+      "buttonset.css"
+    ],
+    "scripts": {
+      "buttonset": "index.js"
+    }
+  },
+  "readme": "Buttonset component",
+  "_id": "buttonset-component@0.0.1",
+  "_from": "buttonset-component@0.0.1"
+}
