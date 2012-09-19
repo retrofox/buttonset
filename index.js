@@ -43,6 +43,9 @@ function ButtonSet(el, opts) {
     }
   }
 
+  // force unselectable if buttonset is multiple
+  if (this.options.multiple) this.options.unselectable = true;
+
   // bind click event to options
   this.el.on('click', 'a', this.onSet.bind(this));
 
