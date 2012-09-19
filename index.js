@@ -32,7 +32,6 @@ function ButtonSet(el, opts) {
   if (!(this instanceof ButtonSet)) return new ButtonSet(el, opts);
   Emitter.call(this);
 
-
   this.el = o(el);
   classes(this.el.get(0)).add('buttonset');
   this.options = opts || {};
@@ -90,7 +89,7 @@ ButtonSet.prototype.onSet = function(e){
 };
 
 /**
- * Set an option
+ * Set a button
  *
  * Emits `set` (el, index) event
  *
@@ -99,16 +98,11 @@ ButtonSet.prototype.onSet = function(e){
  */
 
 ButtonSet.prototype.set = function(button){
-  button = 'number' == typeof button ? this.el.find('a').eq(button) : button;
-  if (!button.length) return false;
-
-  classes(button.get(0)).add('setted');
-  this.emit('set', button, button.prevAll().length);
-  return true;
+  return this.change(button, true);
 };
 
 /**
- * Unset an option
+ * Unset a button
  *
  * Emits `unset` (el, index) event
  *
@@ -117,10 +111,22 @@ ButtonSet.prototype.set = function(button){
  */
 
 ButtonSet.prototype.unset = function(button){
+  return this.change(button, false);
+};
+
+/**
+ * Set/Unset a button
+ *
+ * @param {jQuery|Number} button option to select
+ * @param {Boolean} set defines set or unset button
+ * @api private
+ */
+
+ButtonSet.prototype.change = function(button, set){
   button = 'number' == typeof button ? this.el.find('a').eq(button) : button;
   if (!button.length) return false;
 
-  classes(button.get(0)).remove('setted');
-  this.emit('unset', button, button.prevAll().length);
+  classes(button.get(0))[set ? 'add' : 'remove']('setted');
+  this.emit(set ? 'set' : 'unset', button, button.prevAll().length);
   return true;
 };
