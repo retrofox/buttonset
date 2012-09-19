@@ -4,7 +4,7 @@
   ButtonSet component
 
   ![js buttonset
-  component](http://f.cl.ly/items/2a3a0j3H2p3v1Q0Q2w08/Screen%20Shot%202012-09-18%20at%208.52.24%20PM.png)
+  component](http://f.cl.ly/items/2T2j301q1M0K0P3a1h21/Screen%20Shot%202012-09-19%20at%206.01.08%20PM.png)
 
 ## Installation
 
