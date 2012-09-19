@@ -80,7 +80,7 @@ ButtonSet.prototype.add = function(){
  */
 
 ButtonSet.prototype.onSet = function(e){
-  if (o(e.target).hasClass('setted')) {
+  if (classes(e.target).has('setted')) {
     if (!this.options.unselectable) return;
     return this.unset(this.el.find('a.setted'));
   }
