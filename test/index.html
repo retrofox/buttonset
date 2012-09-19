@@ -30,7 +30,15 @@
   </head>
   <body>
     <h1>Buttonset</h1>
-    <div class="buttonset-placeholder"></div>
+    <p>unselectable: <strong>false</strong><br /> multiple: <strong>false</strong></p>
+    <p class="buttonset-placeholder"></p>
+    <hr />
+    <p>unselectable: <strong>true</strong><br /> multiple: <strong>false</strong></p>
+    <p class="buttonset-placeholder-2"></p>
+    <hr />
+    <p>unselectable: <strong>true</strong><br /> multiple: <strong>true</strong></p>
+    <p class="buttonset-placeholder-3"></p>
+    <hr />
     <script src="../build/build.js"></script>
     <script>
       var ButtonSet = require('buttonset');
@@ -49,6 +57,18 @@
         console.log('UNSET button "%s". index: %s', button.text(), index);
       });
 
+
+      var bset2 = new ButtonSet('.buttonset-placeholder-2', {
+        buttons: ['Maradona', 'Pele', 'Van Basten', 'Beckenbauer'],
+        select: 3,
+        unselectable: true
+      });
+
+
+      var bset3 = new ButtonSet('.buttonset-placeholder-3', {
+        buttons: ['Apple', 'Banana', 'Lemon', 'Strawberry', 'Peach'],
+        multiple: true
+      });
     </script>
   </body>
 </html>
