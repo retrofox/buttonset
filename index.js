@@ -93,7 +93,7 @@ ButtonSet.prototype.onSet = function(e){
 /**
  * Set an option
  *
- * Emits `set` event
+ * Emits `set` (el, index) event
  *
  * @param {jQuery|Number} button option to select
  * @api public
@@ -102,14 +102,14 @@ ButtonSet.prototype.onSet = function(e){
 ButtonSet.prototype.set = function(button){
   button = 'number' == typeof button ? this.el.find('a').eq(button) : button;
   classes(button.get(0)).add('setted');
-  this.emit('set', button);
+  this.emit('set', button, button.prevAll().length);
   return this;
 };
 
 /**
  * Unset an option
  *
- * Emits `unset` event
+ * Emits `unset` (el, index) event
  *
  * @param {jQuery|Number} button option to select
  * @api public
@@ -118,6 +118,6 @@ ButtonSet.prototype.set = function(button){
 ButtonSet.prototype.unset = function(button){
   button = 'number' == typeof buttons ? this.el.find('a').eq(button) : button;
   classes(button.get(0)).remove('setted');
-  this.emit('unset', button);
+  this.emit('unset', button, button.prevAll().length);
   return this;
 };
