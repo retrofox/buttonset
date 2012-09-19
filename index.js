@@ -21,7 +21,7 @@ module.exports = ButtonSet;
  * @param {String|Object} el reference element
  * @param {Object} opts options
  *
- *  - options {Array} buttonset options
+ *  - buttons {Array} buttonset buttons
  *  - unselectable {Boolean} allows unset the current setted option (default: true)
  *
  * @api public
@@ -36,15 +36,15 @@ function ButtonSet(el, opts) {
   classes(this.el.get(0)).add('buttonset');
   this.options = opts || {};
 
-  // add options
-  if (this.options.options) {
-    for (var i = 0; i < this.options.options.length; i++) {
-      this.add(this.options.options[i]);
+  // add buttons
+  if (this.options.buttons) {
+    for (var i = 0; i < this.options.buttons.length; i++) {
+      this.add(this.options.buttons[i]);
     }
   }
 
   // unseletable option is true by default
-  this.options.unselectable = this.options.unselectable !== false;
+  this.options.unselectable = false !== this.options.unselectable ;
 
   // bind click event to options
   this.el.on('click', 'a', this.onSet.bind(this));
@@ -95,14 +95,14 @@ ButtonSet.prototype.onSet = function(e){
  *
  * Emits `set` event
  *
- * @param {jQuery|Number} opt option to select
+ * @param {jQuery|Number} button option to select
  * @api public
  */
 
-ButtonSet.prototype.set = function(opt){
-  opt = 'number' == typeof opt ? this.el.find('a').eq(opt) : opt;
-  classes(opt.get(0)).add('setted');
-  this.emit('set', opt);
+ButtonSet.prototype.set = function(button){
+  button = 'number' == typeof button ? this.el.find('a').eq(button) : button;
+  classes(button.get(0)).add('setted');
+  this.emit('set', button);
   return this;
 };
 
@@ -111,12 +111,13 @@ ButtonSet.prototype.set = function(opt){
  *
  * Emits `unset` event
  *
- * @param {jQuery|Number} opt option to select
+ * @param {jQuery|Number} button option to select
  * @api public
  */
 
-ButtonSet.prototype.unset = function(opt){
-  opt = 'number' == typeof opts ? this.el.find('a').eq(opt) : opt;
-  classes(opt.get(0)).remove('setted');
-  this.emit('unset', opt);
+ButtonSet.prototype.unset = function(button){
+  button = 'number' == typeof buttons ? this.el.find('a').eq(button) : button;
+  classes(button.get(0)).remove('setted');
+  this.emit('unset', button);
+  return this;
 };
