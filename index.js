@@ -24,6 +24,7 @@ module.exports = ButtonSet;
  *  - buttons {Array} initial buttons
  *  - unselectable {Boolean} allows unset the current selected option (default false)
  *  - multiple {Boolean} allows multiple selections (default false)
+ *  - select {Number} allows select initial option
  *
  * @api public
  */
