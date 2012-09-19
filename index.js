@@ -100,9 +100,11 @@ ButtonSet.prototype.onSet = function(e){
 
 ButtonSet.prototype.set = function(button){
   button = 'number' == typeof button ? this.el.find('a').eq(button) : button;
+  if (!button.length) return false;
+
   classes(button.get(0)).add('setted');
   this.emit('set', button, button.prevAll().length);
-  return this;
+  return true;
 };
 
 /**
@@ -115,8 +117,10 @@ ButtonSet.prototype.set = function(button){
  */
 
 ButtonSet.prototype.unset = function(button){
-  button = 'number' == typeof buttons ? this.el.find('a').eq(button) : button;
+  button = 'number' == typeof button ? this.el.find('a').eq(button) : button;
+  if (!button.length) return false;
+
   classes(button.get(0)).remove('setted');
   this.emit('unset', button, button.prevAll().length);
-  return this;
+  return true;
 };
