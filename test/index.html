@@ -35,14 +35,15 @@
     <script>
       var Buttonset = require('buttonset');
 
-      new Buttonset('.buttonset-placeholder', ['A', 'B', 'C', 'D'])
-      .set(2)
-      .on('set', function(opt){
-        console.log('setted "%s"', opt.text());
-      })
-      .on('unset', function(opt){
-        console.log('unsetted "%s"', opt.text());
-      });
+      new Buttonset('.buttonset-placeholder', {
+        options: ['A', 'B', 'C', 'D']
+      }).set(2)
+        .on('set', function(opt){
+          console.log('setted "%s"', opt.text());
+        })
+        .on('unset', function(opt){
+          console.log('unsetted "%s"', opt.text());
+        });
 
     </script>
   </body>

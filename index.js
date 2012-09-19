@@ -33,9 +33,9 @@ function ButtonSet(el, opts) {
   this.options = opts || [];
 
   // add options
-  if (this.options) {
-    for (var i = 0; i < this.options.length; i++) {
-      this.add(this.options[i]);
+  if (this.options.options) {
+    for (var i = 0; i < this.options.options.length; i++) {
+      this.add(this.options.options[i]);
     }
   }
 
