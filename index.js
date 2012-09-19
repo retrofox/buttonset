@@ -28,7 +28,8 @@ function ButtonSet(el, opts) {
   if (!(this instanceof ButtonSet)) return new ButtonSet(el, opts);
   Emitter.call(this);
 
-  this.el = o(el).addClass('buttonset');
+  this.el = o(el);
+  classes(this.el.get(0)).add('buttonset');
   this.options = opts || [];
 
   // add options
@@ -70,32 +71,44 @@ ButtonSet.prototype.add = function(el){
  */
 
 ButtonSet.prototype.onSet = function(e){
-  this.unset(this.el.find('a.setted'));
+  if (o(e.target).hasClass('setted')) {
+    return this.unset(this.el.find('a.setted'));
+  }
+
+  if (this.el.find('a.setted').length) {
+    this.unset(this.el.find('a.setted'));
+  }
+
   this.set(o(e.target));
 };
 
 /**
  * Set an option
  *
+ * Emits `set` event
+ *
  * @param {jQuery|Number} opt option to select
  * @api public
  */
 
 ButtonSet.prototype.set = function(opt){
-  opt = 'number' == typeof opts ? this.el.find('a').get(opt) : opt;
-  opt.addClass('setted');
+  opt = 'number' == typeof opt ? this.el.find('a').eq(opt) : opt;
+  classes(opt.get(0)).add('setted');
   this.emit('set', opt);
+  return this;
 };
 
 /**
  * Unset an option
+ *
+ * Emits `unset` event
  *
  * @param {jQuery|Number} opt option to select
  * @api public
  */
 
 ButtonSet.prototype.unset = function(opt){
-  opt = 'number' == typeof opts ? this.el.find('a').get(opt) : opt;
-  opt.removeClass('setted');
+  opt = 'number' == typeof opts ? this.el.find('a').eq(opt) : opt;
+  classes(opt.get(0)).remove('setted');
   this.emit('unset', opt);
 };

@@ -29,19 +29,20 @@
     </style>
   </head>
   <body>
-    <title>Buttonset</title>
+    <h1>Buttonset</h1>
     <div class="buttonset-placeholder"></div>
     <script src="../build/build.js"></script>
     <script>
       var Buttonset = require('buttonset');
-      var button = new Buttonset('.buttonset-placeholder', ['A', 'B', 'C', 'D']);
-      button
-        .on('set', function(opt){
-          console.log('setted "%s"', opt.text());
-        })
-        .on('unset', function(opt){
-          console.log('unsetted "%s"', opt.text());
-        });
+
+      new Buttonset('.buttonset-placeholder', ['A', 'B', 'C', 'D'])
+      .set(2)
+      .on('set', function(opt){
+        console.log('setted "%s"', opt.text());
+      })
+      .on('unset', function(opt){
+        console.log('unsetted "%s"', opt.text());
+      });
 
     </script>
   </body>
