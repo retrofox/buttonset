@@ -2,7 +2,7 @@
   "name": "buttonset",
   "repo": "component/buttonset",
   "description": "Buttonset component",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "keywords": ["buttonset"],
   "dependencies": {
     "component/emitter": "*",
